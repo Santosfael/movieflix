@@ -16,6 +16,7 @@ Font: DevSuperior
 \
 \
 ![APP](./img/mobile.png)
+\
 Font: DevSuperior
 
 ## The project is being divided into the following stages: 
