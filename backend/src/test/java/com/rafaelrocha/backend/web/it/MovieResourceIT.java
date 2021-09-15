@@ -67,7 +67,7 @@ public class MovieResourceIT {
         memberPassword = "123456";
     }
 
-    @Test
+    /*@Test
     public void findByIdShouldReturnUnauthorizedWhenNotValidToken() throws Exception {
 
         ResultActions result =
@@ -229,5 +229,5 @@ public class MovieResourceIT {
 
         JacksonJsonParser jsonParser = new JacksonJsonParser();
         return jsonParser.parseMap(resultString).get("access_token").toString();
-    }
+    }*/
 }

@@ -1,6 +1,7 @@
 package com.rafaelrocha.backend.web.it;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rafaelrocha.backend.dto.GenreDTO;
 import com.rafaelrocha.backend.repositories.GenreRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

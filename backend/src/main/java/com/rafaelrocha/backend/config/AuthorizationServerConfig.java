@@ -24,6 +24,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Value("${security.oauth2.client.client-id}")
     private String clientId;
+
     @Value("${security.oauth2.client.client-secret}")
     private String clientSecret;
 
@@ -63,6 +64,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .accessTokenValiditySeconds(jwtDuration);
     }
 
+    @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         TokenEnhancerChain chain = new TokenEnhancerChain();
         chain.setTokenEnhancers(Arrays.asList(accessTokenConverter, tokenEnhancer));

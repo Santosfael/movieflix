@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 public class ReviewResourceIT {
 
-    @Autowired
+    /*@Autowired
     private MockMvc mockMvc;
 
     @Autowired
@@ -149,5 +149,5 @@ public class ReviewResourceIT {
 
         JacksonJsonParser jsonParser = new JacksonJsonParser();
         return jsonParser.parseMap(resultString).get("access_token").toString();
-    }
+    }*/
 }
