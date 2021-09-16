@@ -3,6 +3,8 @@ package com.rafaelrocha.backend.web.it;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.rafaelrocha.backend.dto.MovieDTO;
+import com.rafaelrocha.backend.dto.ReviewDTO;
 import com.rafaelrocha.backend.repositories.MovieRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -67,7 +69,7 @@ public class MovieResourceIT {
         memberPassword = "123456";
     }
 
-    /*@Test
+    @Test
     public void findByIdShouldReturnUnauthorizedWhenNotValidToken() throws Exception {
 
         ResultActions result =
@@ -229,5 +231,5 @@ public class MovieResourceIT {
 
         JacksonJsonParser jsonParser = new JacksonJsonParser();
         return jsonParser.parseMap(resultString).get("access_token").toString();
-    }*/
+    }
 }
