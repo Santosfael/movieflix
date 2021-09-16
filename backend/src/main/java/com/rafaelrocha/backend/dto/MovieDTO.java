@@ -3,6 +3,7 @@ package com.rafaelrocha.backend.dto;
 import com.rafaelrocha.backend.entities.Movie;
 import com.rafaelrocha.backend.entities.Review;
 
+import javax.persistence.Column;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,8 @@ public class MovieDTO implements Serializable {
     private String subTitle;
     private Integer year;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT")
     private String synopsis;
     private Long genreId;
     private List<ReviewDTO> reviews = new ArrayList<>();

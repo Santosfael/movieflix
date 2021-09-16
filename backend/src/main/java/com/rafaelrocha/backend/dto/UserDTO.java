@@ -33,7 +33,7 @@ public class UserDTO implements Serializable {
     public UserDTO(User user) {
         id = user.getId();
         name = user.getName();
-        email = user.getPassword();
+        email = user.getEmail();
         user.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
     }
 

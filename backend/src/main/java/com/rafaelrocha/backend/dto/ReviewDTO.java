@@ -2,30 +2,35 @@ package com.rafaelrocha.backend.dto;
 
 import com.rafaelrocha.backend.entities.Review;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 public class ReviewDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
+
+    @NotBlank(message = "Campo obrigatorio")
+    @NotEmpty
     private String text;
-    private Long userId;
+    private UserDTO user;
     private Long movieId;
 
     public ReviewDTO() {
     }
 
-    public ReviewDTO(Long id, String text, Long userId, Long movieId) {
+    public ReviewDTO(Long id, String text, UserDTO user, Long movieId) {
         this.id = id;
         this.text = text;
-        this.userId = userId;
+        this.user = user;
         this.movieId = movieId;
     }
 
     public ReviewDTO(Review review) {
         id = review.getId();
         text = review.getText();
-        userId = review.getUser().getId();
+        user = new UserDTO(review.getUser());
         movieId = review.getMovie().getId();
     }
 
@@ -45,12 +50,12 @@ public class ReviewDTO implements Serializable {
         this.text = text;
     }
 
-    public Long getUserId() {
-        return userId;
+    public UserDTO getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(UserDTO user) {
+        this.user = user;
     }
 
     public Long getMovieId() {

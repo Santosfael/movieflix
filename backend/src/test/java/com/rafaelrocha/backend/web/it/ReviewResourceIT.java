@@ -1,6 +1,8 @@
 package com.rafaelrocha.backend.web.it;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rafaelrocha.backend.dto.ReviewDTO;
+import com.rafaelrocha.backend.repositories.ReviewRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 public class ReviewResourceIT {
 
-    /*@Autowired
+    @Autowired
     private MockMvc mockMvc;
 
     @Autowired
@@ -149,5 +151,5 @@ public class ReviewResourceIT {
 
         JacksonJsonParser jsonParser = new JacksonJsonParser();
         return jsonParser.parseMap(resultString).get("access_token").toString();
-    }*/
+    }
 }
