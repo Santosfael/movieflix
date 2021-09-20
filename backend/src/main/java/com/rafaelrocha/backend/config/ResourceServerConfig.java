@@ -32,6 +32,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     private static final String[] CREATE_ACCOUNT = {"/users/**"};
 
+    private static final String[] UPDATE_USER = {"/users/**"};
+
+    private static final String[] USERS = {"/users/**"};
+
     private static final String[] POST_REVIEW = {"/reviews/**"};
 
     private static final String[] VISITOR_AND_MEMBER = {"/movies/**", "/reviews/**", "/genres/**"};
@@ -47,8 +51,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         }
         http.authorizeRequests()
                 .antMatchers(PUBLIC).permitAll()
+                .antMatchers(HttpMethod.PUT, UPDATE_USER).permitAll()
                 .antMatchers(HttpMethod.POST, CREATE_ACCOUNT).permitAll()
-                .antMatchers(HttpMethod.POST, POST_REVIEW).hasRole("MEMBER")
+                .antMatchers(USERS).hasRole("MEMBER")
                 .antMatchers(VISITOR_AND_MEMBER).hasAnyRole("MEMBER", "VISITOR")
                 .anyRequest().authenticated();
 
