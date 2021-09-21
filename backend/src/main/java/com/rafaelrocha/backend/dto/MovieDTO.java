@@ -17,10 +17,9 @@ public class MovieDTO implements Serializable {
     private String subTitle;
     private Integer year;
     private String imgUrl;
-
-    @Column(columnDefinition = "TEXT")
     private String synopsis;
     private Long genreId;
+
     private List<ReviewDTO> reviews = new ArrayList<>();
 
     public MovieDTO() {

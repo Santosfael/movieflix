@@ -1,5 +1,7 @@
 package com.rafaelrocha.backend.entities;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class Genre implements Serializable {
     private Long id;
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "genre")
     private List<Movie> movies = new ArrayList<>();
 

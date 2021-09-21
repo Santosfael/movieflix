@@ -1,5 +1,7 @@
 package com.rafaelrocha.backend.entities;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class Movie implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String synopsis;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "movie")
     private List<Review> reviews = new ArrayList<>();
 
