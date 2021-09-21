@@ -1,7 +1,6 @@
 package com.rafaelrocha.backend.resources;
 
 import com.rafaelrocha.backend.dto.GenreDTO;
-import com.rafaelrocha.backend.entities.Genre;
 import com.rafaelrocha.backend.services.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +9,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/genres")
@@ -33,7 +31,7 @@ public class GenreResource {
     }
 
     @PostMapping
-    public ResponseEntity<GenreDTO> insert(@RequestParam GenreDTO genreDTO) {
+    public ResponseEntity<GenreDTO> insert(@RequestBody GenreDTO genreDTO) {
         genreDTO = genreService.insert(genreDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}")
                 .buildAndExpand(genreDTO.getId()).toUri();
