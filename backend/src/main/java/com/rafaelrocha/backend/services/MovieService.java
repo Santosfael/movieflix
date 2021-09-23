@@ -52,7 +52,7 @@ public class MovieService {
         return movies.map(MovieDTO::new);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public MovieDTO insert(MovieDTO movieDTO) {
         Movie movie = new Movie();
         copyDtoToEntity(movieDTO, movie);
@@ -60,7 +60,7 @@ public class MovieService {
         return new MovieDTO(movie);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public MovieDTO update(Long id, MovieDTO movieDTO) {
         try {
             Movie movie = movieRepository.getOne(id);
