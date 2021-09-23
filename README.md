@@ -6,6 +6,23 @@ The project will follow the following chronology:
 * Web Application;
 * App Android and iOS.
 
+## Technologies being used for development
+* Back-end
+    * Spring boot
+    * Spring Security
+    * Spring JPA
+    * Spring OAuth2
+    * JWT
+* Front-end
+    * TypeScript
+    * ReactJs
+    * HTML/CSS
+* Mobile
+    * Expo-cli
+    * TypeScript
+    * React Native
+
+
 ## Backend conceptual model
 ![Conceptual_model](./img/modelo_conceitual.png)
 Font: DevSuperior
@@ -30,13 +47,8 @@ Spring Tools Suite or IntelliJ IDEA;\
 Link showing how to import the project into STS: Channel Youtube Kidson The Tech Pro [Import_Project](https://www.youtube.com/watch?v=aE-aH6bnPSc&ab_channel=KindsonTheTechPro)\
 Link showing how to import the project into IntellijIDE: Site JetBrains [Import_Project](https://www.jetbrains.com/help/idea/import-project-or-module-wizard.html#import-project)
 
-### O que já foi implementado ou será implementado.
+### What has already been implemented or will be implemented.
 
-- [x] Entities
-- [ ] Repositories
-- [ ] Config Aouth2
-- [ ] Custom Exception Service
-- [ ] Custom Exception Resource
-- [ ] Class DTO
-- [ ] Services
-- [ ] Resources
+- [x] Back-end
+- [ ] Front-end
+- [ ] Mobile
