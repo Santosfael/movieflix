@@ -1,0 +1,31 @@
+.container-home {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    padding-right: 116px;
+}
+
+.content-image {
+    margin-left: 97px;
+    margin-top: 41px;
+    align-items: flex-start;
+
+    h1 {
+        font-size: 48px;
+        font-weight: bold;
+        line-height: 65px;
+        letter-spacing: -0.015em;
+    }
+
+    p {
+        margin-top: 19px;
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: -0.015em;
+    }
+
+    img {
+        margin-top: 51px;
+        margin-left: -40px;
+    }
+}
