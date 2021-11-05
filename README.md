@@ -47,6 +47,9 @@ Spring Tools Suite or IntelliJ IDEA;\
 Link showing how to import the project into STS: Channel Youtube Kidson The Tech Pro [Import_Project](https://www.youtube.com/watch?v=aE-aH6bnPSc&ab_channel=KindsonTheTechPro)\
 Link showing how to import the project into IntellijIDE: Site JetBrains [Import_Project](https://www.jetbrains.com/help/idea/import-project-or-module-wizard.html#import-project)
 
+### To run the web, click on the link below and you will be redirected to the Web App readme:
+[Readme_Web](./web/README.md)
+
 ### What has already been implemented or will be implemented.
 
 - [x] Back-end
