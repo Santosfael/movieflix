@@ -1,5 +1,5 @@
 .container-card {
-    padding: 74px 44px 130px 51px;
+    padding: 40px 44px 0 51px;
     border-radius: 4px;
 
     h1 {
@@ -64,6 +64,40 @@
     transition: background-color 0.2s;
 }
 
+.invalid {
+    background: rgba(255, 100, 60, $alpha: 0.25);
+    border: 2px solid #ff0000;
+
+    &::placeholder {
+        color: #fefefe;
+    }
+}
+
+.info-invalid {
+    margin-top: 4px;
+    color: #ff0000;
+
+}
+
 .button-login:hover {
     background: #ffb700;
+}
+
+@media(min-width: 1400px) {
+    .container-card {
+        padding: 70px 44px 0 51px;
+        border-radius: 4px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-login {
+        margin-bottom: 70px;
+    }
 }

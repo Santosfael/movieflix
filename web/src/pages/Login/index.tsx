@@ -1,10 +1,10 @@
-import { Header } from "../../components/Header";
+import { Header } from '../../core/components/Header';
+import { Card } from '../../core/components/Card';
 
-import logoImg from '../../assets/Desenho.svg';
+import logoImg from '../../core/assets/images/desenho.svg';
 import './styles.scss';
-import { Card } from "../../components/Card";
 
-export function Home() {
+export function Login() {
     return (
         <div>
             <Header />
