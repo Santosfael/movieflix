@@ -60,7 +60,7 @@ export function isAllowedByRole(routeRoles: Role[] = []) {
     }
 
     const { authorities } = getAccessTokenDecoded();
-    return routeRoles.some(role => authorities.includes(role));
+    return routeRoles.some(role => authorities?.includes(role));
 }
 
 export function logout() {

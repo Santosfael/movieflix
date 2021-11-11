@@ -35,11 +35,14 @@ export function Catalog() {
             <div className='catalog-container'>
                 <div className='catalog-movie'>
                     {
-                        movieResponse?.content.map(movie => {
-
-                            <MovieCard key={movie.id} movie={movie} />
-
-                        })
+                        (movieResponse?.content.map(movie => {
+                            <Link
+                                to={`/movies/${movie.id}`}
+                                key={movie.id}
+                            >
+                                <MovieCard movie={movie} />
+                            </Link>
+                        }))
                     }
                 </div>
             </div>
