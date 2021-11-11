@@ -1,0 +1,43 @@
+.movie-card {
+    padding: 18px 20px 30px 20px;
+    text-align: center;
+}
+
+.movie-card-img {
+    width: 160px;
+    height: 160px;
+}
+
+.movie-info {
+    text-align: left;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.movie-title {
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: -0,015em;
+    color: #FFF;
+
+    margin-top: 11px;
+}
+
+.movie-year {
+
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0,015em;
+    color: #FFc700;
+
+    margin-top: 8px;
+}
+
+.movie-subtitle {
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0,015em;
+    color: #FFF;
+
+    margin-top: 8px;
+}

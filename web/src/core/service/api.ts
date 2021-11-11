@@ -1,4 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
+import qs from "qs";
+import { CLIENT_ID, CLIENT_SECRET, getSessionData, logout } from "../context/auth";
 
 type LoginData = {
     username: string;
@@ -11,8 +13,8 @@ const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'http://localhost:8080';
 axios.interceptors.response.use((response) => {
     return response;
 }, (error) => {
-    if(error.response.status === 401) {
-        //logout();
+    if (error.response.status === 401) {
+        logout();
     }
 
     return Promise.reject(error);
@@ -26,5 +28,24 @@ export function Api(params: AxiosRequestConfig) {
 };
 
 export function PrivateRequestApi(params: AxiosRequestConfig) {
-    //const sessionData = getSessionData();
+    const sessionData = getSessionData();
+    const headers = {
+        Authorization: `Bearer ${sessionData.access_token}`,
+    }
+
+    return Api({ ...params, headers });
+};
+
+export function LoginApi(loginData: LoginData) {
+    const token = `${CLIENT_ID}:${CLIENT_SECRET}`;
+    console.log(token);
+
+    const headers = {
+        Authorization: `Basic ${window.btoa(token)}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+
+    const payload = qs.stringify({ ...loginData, grant_type: 'password' });
+
+    return Api({ url: '/oauth/token', data: payload, method: 'POST', headers });
 }

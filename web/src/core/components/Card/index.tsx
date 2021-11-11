@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router';
+
 import { useForm } from 'react-hook-form';
 
 import './styles.scss';
+import { LoginApi } from '../../service/api';
+import { useState } from 'react';
+import { saveSessionData } from '../../context/auth';
 
 type FormState = {
     username: string;
@@ -9,13 +13,19 @@ type FormState = {
 }
 
 export function Card() {
-    const {register, handleSubmit, formState: { errors }} = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [hasError, setHasError] = useState(false);
 
     const navigate = useNavigate();
 
     function onSubmit(data: FormState) {
-        console.log(data);
-        //navigate("/catalog");
+        LoginApi(data)
+            .then(response => {
+                setHasError(false);
+                saveSessionData(response.data);
+                navigate("/catalog");
+            })
+            .catch(() => setHasError(true));
     }
 
     return (
@@ -25,15 +35,15 @@ export function Card() {
                 <div className="margin-bottom-20">
                     <input
                         type="email"
-                        className={`input-text ${errors.username ? 'invalid': ''}`}
+                        className={`input-text ${errors.username ? 'invalid' : ''}`}
                         placeholder="E-mail"
                         {
-                            ...register("username",
+                        ...register("username",
                             {
                                 required: "Campo obrigatorio",
                                 pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                    message:"E-mail inválido"
+                                    message: "E-mail inválido"
                                 }
                             })
                         }
@@ -46,19 +56,19 @@ export function Card() {
                         )
                     }
                 </div>
-                
+
                 <div>
                     <input
                         type="password"
-                        className={`input-text ${errors.password ? 'invalid': ''}`}
+                        className={`input-text ${errors.password ? 'invalid' : ''}`}
                         placeholder="Senha"
                         {
-                            ...register("password",
+                        ...register("password",
                             {
                                 required: "Campo obrigatorio",
                                 minLength: {
                                     value: 5,
-                                    message:"Sua senha é acima de 5 caracteres"
+                                    message: "Sua senha é acima de 5 caracteres"
                                 }
                             })
                         }
@@ -71,6 +81,14 @@ export function Card() {
                         )
                     }
                 </div>
+
+                {
+                    hasError && (
+                        <div className='containerError'>
+                            Usuário ou senha inválidos!
+                        </div>
+                    )
+                }
 
                 <button
                     className="button-login"
